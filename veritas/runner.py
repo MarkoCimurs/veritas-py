@@ -21,8 +21,10 @@ def run_test_functions(module: types.ModuleType) -> None:
     print(f"module: {module.__name__}")
     for name, obj in vars(module).items():
         if name.startswith('test_') and isinstance(obj, types.FunctionType):
-            try:
-                obj()
-                print("\033[92m\tTest {} succeeded\033[0m".format(name))
-            except AssertionError:
-                print("\033[91m\tTest {} failed\033[0m".format(name))
+            runs = getattr(obj, 'runs', 50)
+            for _ in range(runs):
+                try:
+                    obj()
+                    print("\033[92m\tTest {} succeeded\033[0m".format(name))
+                except AssertionError:
+                    print("\033[91m\tTest {} failed\033[0m".format(name))
