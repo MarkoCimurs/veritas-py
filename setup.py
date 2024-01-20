@@ -4,6 +4,10 @@ setup(
     name='veritas',
     version='0.1',
     packages=find_packages(),
-    description='A property-based testing library for Python.',
-    keywords='testing property-based-testing python',
+    py_modules=['main'],
+    entry_points={
+        'console_scripts': [
+            'veritas = veritas.main:main'
+        ]
+    },
 )
