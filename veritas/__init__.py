@@ -1,2 +1,2 @@
 from .strategies import Integer
-from .decorators import given, settings
+from .decorators import given, settings, examples

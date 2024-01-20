@@ -1,7 +1,9 @@
 from typing import Callable
 
-def settings(runs: int) -> Callable:
-    def decorator(func: Callable) -> Callable:
-        func.runs = runs
-        return func
-    return decorator
+class settings:
+    def __init__(self, num_runs: int):
+        self.num_runs = num_runs
+
+    def __call__(self, test_func: Callable) -> Callable:
+        test_func.num_runs = self.num_runs
+        return test_func

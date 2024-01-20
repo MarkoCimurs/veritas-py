@@ -8,4 +8,3 @@ class Integer(Strategy):
 
     def generate(self) -> int:
         return random.randint(self.min_value, self.max_value)
-
