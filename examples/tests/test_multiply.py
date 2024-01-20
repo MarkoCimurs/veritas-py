@@ -1,5 +1,9 @@
+from veritas import Integer
+from veritas import given
+
 def multiply(x: int, y: int) -> int:
     return x * y
 
-def test_multiply_2_and_5():
-    assert multiply(2, 5) == 10
+@given(Integer(), Integer())
+def test_multiply(x: int, y: int) -> int:
+    assert multiply(x, y) == x * y

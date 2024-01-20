@@ -1,9 +1,9 @@
+from veritas import Integer
+from veritas import given
+
 def add(x: int, y: int) -> int:
     return x + y
 
-def test_adding_2_and_5():
-    assert add(2, 5) == 7
-
-
-def test_adding_2_and_6():
-    assert add(2, 6) == 8
+@given(Integer(), Integer())
+def test_adding(x: int, y: int) -> int:
+    assert add(x, y) == x + y
